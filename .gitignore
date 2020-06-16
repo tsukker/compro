@@ -1,0 +1,17 @@
+#
+#
+# competitive programming
+#
+#
+
+# general
+*.out
+*.class
+*.swp
+*.swo
+
+# specific
+x
+
+# testcase
+testcase/
