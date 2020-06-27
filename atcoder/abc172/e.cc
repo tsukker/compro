@@ -172,23 +172,44 @@ void solve() {
   fm[0] = 1;
   fm[1] = m - n;
   FOR (i, 2, n+1) {
+    // cf.) https://ja.wikipedia.org/wiki/完全順列
     // n = i, m = i + m - n
     fm[i] = (fm[i-1] * (i + m - n - 1) + fm[i-2] * (i - 1)) % mod;
   }
   ll ans = a * fm[n] % mod;
   print(ans);
+}
 
-
-  // b: f(n, m) = ?
-  // if b[n-1] in {not_used}; f(n-1, m-1)
-  // if b[n-1] in [0, n-1];
-  //   if b[b[n-1]] == n-1; f(n-2, m-2)
-  //   if b[b[n-1]] != n-1 and b[b[n-1]] in [0, n-1];
-
-  //ll b = 0;
+void solve_editorial() {
+  ll n, m;
+  scan(n, m);
+  ll nm_max = 5 * 100005;
+  vll frac(nm_max, 0);
+  frac.at(0) = 1;
+  rep (i, nm_max - 1) {
+    frac.at(i + 1) = frac.at(i) * (i + 1) % mod;
+  }
+  vll finv(nm_max, 0);
+  finv.at(nm_max - 1) = po(frac.at(nm_max - 1), mod-2);
+  for (int i = nm_max - 2; i >= 0; --i) {
+    finv.at(i) = finv.at(i + 1) * (i + 1) % mod;
+  }
+  ll ans = 0;
+  rep (i, n+1) {
+    ll matching_part = combination(n, i, frac, finv) * frac.at(m) % mod * finv.at(m - i) % mod;
+    ll permutation_m_i = frac.at(m - i) * finv.at(m - n) % mod;
+    ll pans = matching_part * permutation_m_i % mod * permutation_m_i % mod;
+    if (i % 2 == 0) {
+      ans = (ans + pans) % mod;
+    } else {
+      ans = (ans + mod - pans) % mod;
+    }
+  }
+  print(ans);
 }
 
 int main() {
-  solve();
+  // solve();
+  solve_editorial();
   return 0;
 }
