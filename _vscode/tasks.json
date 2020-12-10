@@ -3,7 +3,7 @@
     {
       "label": "test (normal)",
       "type": "shell",
-      "command": "~/.local/bin/oj",
+      "command": "oj",
       "args": [
         "t",
         "-c",
