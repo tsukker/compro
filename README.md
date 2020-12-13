@@ -14,3 +14,7 @@ python generate_directory.py contest_id <num_problem>
 cd contest_id
 python ../download_testcase.py <problem_suffix>
 ```
+
+## Online Judge Tool
+
+Run `oj [subcommand] --help` or see [documentation](https://github.com/online-judge-tools/oj/blob/master/docs/getting-started.ja.md)
