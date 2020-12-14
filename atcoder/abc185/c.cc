@@ -78,7 +78,22 @@ inline void print(std::string s){std::cout<<s<<"\n";}
 
 using namespace std;
 
+// maximum possible answer: 366461620334848584
+ll mod = 366461620334848613;  // smallest prime number greater than above number
+ll denominator = 125259893836778216;  // ≡ pow(Factorial(11), -1)
+ll max_multiplier = 25;  // = pow(2, 63) / 125259893836778216
+
 void solve() {
+  ll l;
+  scan(l);
+  ll ans = denominator;
+  rep (i, 11) {
+    ll multiplier = l - i - 1;
+    ll rest = ans * (multiplier % max_multiplier) % mod;
+    ans = ans * max_multiplier % mod * (multiplier / max_multiplier) % mod;
+    ans = (ans + rest) % mod;
+  }
+  print(ans);
 }
 
 int main() {
