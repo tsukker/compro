@@ -25,11 +25,13 @@
 #define FOR(i,k,n) for(int(i)=(k);(i)<(n);++(i))
 #define rep(i,n) FOR(i,0,n)
 #define all(v) begin(v),end(v)
+#ifdef NDEBUG
+  #define assert(e) if(!(e)){stod("");}
+#endif
 #ifdef ONLINE_JUDGE
   #define debug(x)
   #define debug2(x,y)
   #define debug3(x,y,z)
-  #define assert(e) if(!(e)){stod("");}
 #else
   #define debug(x) std::cerr<<#x<<": "<<x<<"\n"
   #define debug2(x,y) std::cerr<<#x<<": "<<x<<", "<<#y<<": "<<y<<"\n"
