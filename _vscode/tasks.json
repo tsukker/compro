@@ -28,9 +28,11 @@
       "command": "/usr/bin/clang++",
       "args": [
         "-std=c++17",
-        "-O2",
+        "-stdlib=libc++",
         "-Wall",
         "-Wextra",
+        "-O2",
+        "-DONLINE_JUDGE",
         "-o",
         "${fileDirname}/x",
         "${file}"
@@ -47,6 +49,9 @@
       "command": "/usr/bin/clang++",
       "args": [
         "-std=c++17",
+        "-stdlib=libc++",
+        "-Wall",
+        "-Wextra",
         "-g",
         "-o",
         "${fileDirname}/x",
