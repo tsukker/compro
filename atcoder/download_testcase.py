@@ -1,5 +1,6 @@
 #! python3
 
+from multiprocessing import Process
 import os
 import pathlib
 import string
@@ -24,4 +25,6 @@ if __name__ == '__main__':
         sys.argv[5] = f'testcase/{ch}/'
         url = f'https://atcoder.jp/contests/{contest_id}/tasks/{problem_prefix}{ch}'
         sys.argv[7] = url
-        oj_main()
+        p = Process(target=oj_main)
+        p.start()
+        p.join()
