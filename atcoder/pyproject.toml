@@ -5,7 +5,7 @@ description = ""
 authors = ["tsukker <tsukker@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
-python = "3.8.2"
+python = "3.8.11"
 online-judge-tools = "^11.3.1"
 online-judge-api-client = "^10.9.0"
 pyperclip = "^1.8.2"
