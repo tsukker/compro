@@ -7,13 +7,8 @@
 
 ## Usage
 
-```shell
-cd atcoder
-python generate_directory.py contest_id <num_problem>
-
-cd contest_id
-python ../download_testcase.py <problem_suffix>
-```
+Type `cd [service]`.
+For example, `cd atcoder`.
 
 ## Online Judge Tool
 
